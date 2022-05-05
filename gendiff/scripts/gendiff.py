@@ -12,11 +12,11 @@ def get_args():
     parser.add_argument('second_file')
     parser.add_argument(
         '-f', '--format',
-        default='stylish',
+        default='stylish', type=str,
         help='output format (default: "stylish")')
     args = parser.parse_args()
 
-    return args.first_file, args.second_file
+    return args.first_file, args.second_file, args.format
 
 
 def main():
