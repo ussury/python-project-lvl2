@@ -2,6 +2,8 @@ from pathlib import Path
 from gendiff.parser import parse
 from gendiff.stylish import stylish
 
+FORMATTER = {'stylish': stylish}
+
 
 def get_diff(dicts):
     data1 = dicts[0]
@@ -22,7 +24,7 @@ def get_diff(dicts):
     return diff
 
 
-def generate_diff(first_file, second_file):
+def generate_diff(first_file, second_file, format):
     try:
         first_path = parse(Path(first_file))
         second_path = parse(Path(second_file))
@@ -30,4 +32,4 @@ def generate_diff(first_file, second_file):
     except FileNotFoundError:
         return print('Неверный путь к файлу')  # Wrong file path
 
-    return stylish(get_diff(parse_file))
+    return FORMATTER[format](get_diff(parse_file))
