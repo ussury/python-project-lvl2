@@ -2,10 +2,12 @@ from pathlib import Path
 from gendiff.parser import parse
 from gendiff.formatter.stylish import stylish
 from gendiff.formatter.plain import plain
+from gendiff.formatter.json import get_json
 
 FORMATTER = {
     'stylish': stylish,
     'plain': plain,
+    'json': get_json
 }
 
 
