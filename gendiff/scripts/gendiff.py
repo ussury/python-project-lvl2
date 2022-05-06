@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-from pathlib import Path
-from gendiff.diff import get_diff, FORMATTER
-from gendiff.parser import parse
+from gendiff.diff import generate_diff
 
 
 def get_args():
@@ -19,17 +17,6 @@ def get_args():
     args = parser.parse_args()
 
     return args.first_file, args.second_file, args.format
-
-
-def generate_diff(first_file, second_file, format):
-    try:
-        first_path = parse(Path(first_file))
-        second_path = parse(Path(second_file))
-        parse_file = [first_path, second_path]
-    except FileNotFoundError:
-        return print('Неверный путь к файлу')  # Wrong file path
-
-    return FORMATTER[format](get_diff(parse_file))
 
 
 def main():
