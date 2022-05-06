@@ -30,9 +30,7 @@ def add_string(status, key, value, step):
 
     status = step * '    ' + status
     value = get_bool_text(value)
-    result_str = f'{status}{key}: {value}\n'
-
-    return result_str
+    return f'{status}{key}: {value}\n'
 
 
 def stylish(diff, step=0):

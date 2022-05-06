@@ -1,8 +1,12 @@
 from pathlib import Path
 from gendiff.parser import parse
-from gendiff.stylish import stylish
+from gendiff.formatter.stylish import stylish
+from gendiff.formatter.plain import plain
 
-FORMATTER = {'stylish': stylish}
+FORMATTER = {
+    'stylish': stylish,
+    'plain': plain,
+}
 
 
 def get_diff(dicts):
