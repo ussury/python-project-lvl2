@@ -30,7 +30,7 @@ def get_diff(dicts):
     return diff
 
 
-def generate_diff(first_file, second_file, format):
+def generate_diff(first_file, second_file, format='stylish'):
     try:
         first_path = parse(Path(first_file))
         second_path = parse(Path(second_file))
