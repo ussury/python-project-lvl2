@@ -24,15 +24,20 @@ def add_string(full_path, value1, status, value2=None):
     return ''
 
 
-def plain(diff, full_path=''):
-    keys = sorted(diff)
-    view = ''
-    for key in keys:
-        if diff[key][0] == 'nested':
-            view += plain(diff[key][1], full_path + f'{key}.')
-        elif diff[key][0] == 'modified':
-            view += add_string(f'{full_path}{key}', diff[key][1],
-                               'modified', diff[key][2])
-        else:
-            view += add_string(f'{full_path}{key}', diff[key][1], diff[key][0])
-    return view
+def plain(diff):
+
+    def iter(data, full_path=''):
+        keys = sorted(data)
+        view = ''
+        for key in keys:
+            if data[key][0] == 'nested':
+                view += iter(data[key][1], f'{full_path}{key}.')
+            elif data[key][0] == 'modified':
+                view += add_string(f'{full_path}{key}', data[key][1],
+                                   'modified', data[key][2])
+            else:
+                view += add_string(f'{full_path}{key}',
+                                   data[key][1], data[key][0])
+        return view
+
+    return iter(diff)[:-1]
