@@ -9,4 +9,6 @@
 Программа производит сравнение двух файлов в формате json или yaml.
 Результат выводится как опция в формате json, в виде дерева или в виде текстовой записи. 
 
-Демонстрация работы программы: https://asciinema.org/a/Goc52HP73XGOPuq6NQqVebEqZ
+Демонстрация работы программы: 
+
+[![asciicast](https://asciinema.org/a/Goc52HP73XGOPuq6NQqVebEqZ.svg)](https://asciinema.org/a/Goc52HP73XGOPuq6NQqVebEqZ)
